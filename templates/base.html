@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flask Auth Example</title>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <!--    <link rel="stylesheet" href="style.css" />-->
+    <!--    <image src="{{ url_for('static', filename='images/image.png')}}"></image>-->
+<!--    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">-->
+</head>
+
+<body>
+<section class="hero is-fullheight" style="background-color:aqua;">
+
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">Home</a>
+<!--                        <a href="{{ url_for('main.information') }}" class="navbar-item">Information</a>-->
+<!--                        <a href="{{ url_for('main.calculator') }}" class="navbar-item">Calculator</a>-->
+<!--                        <a href="{{ url_for('main.complex') }}" class="navbar-item">Complex numbers</a>-->
+<!--                        <a href="{{ url_for('main.converter') }}" class="navbar-item">Converter</a>-->
+<!--                        <a href="{{ url_for('main.geometry') }}" class="navbar-item">Geometry</a>-->
+<!--                        <a href="{{ url_for('main.graph') }}" class="navbar-item">Grapher</a>-->
+<!--                        <a href="{{ url_for('main.matrices') }}" class="navbar-item">Matrices</a>-->
+<!--                        <a href="{{ url_for('main.mechanics') }}" class="navbar-item">Mechanics</a>-->
+<!--                        <a href="{{ url_for('main.checker') }}" class="navbar-item">Number checker</a>-->
+<!--                        <a href="{{ url_for('main.solver') }}" class="navbar-item">Solver</a>-->
+<!--                        Once logged in the user can access certain pages, such as their profile and logout-->
+<!--                        They can also only access the signup and login pages when not logged in-->
+<!--                        They are able to access all other pages regardless of being logged in or out-->
+                        {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a>
+                        {% endif %}
+                        {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
+                        <a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

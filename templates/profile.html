@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1 class="title">Welcome, {{name}}!</h1>
+</div>
+<div>
+    <br><br><br><H1>Account information:</H1>
+    <H1>Name: {{name}}</h1>
+    <H1>Email: {{email}}</h1>
+</div>
+<div>
+    <br><br><br><EM>Do you wish to delete your account?</EM>
+    <br><EM>Warning! This action cannot be undone.</EM>
+    <br><a href="{{ url_for('auth.delete') }}" style="text-decoration:underline; color:black; font-weight:bold;">Delete account</a>
+</div>
+{% endblock %}
