@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Calculator</title>
+	<link rel="icon" href="/static/images//favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href={{url_for("static", filename="calculator/calculator.css")}}>
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<a href="../" class="left1">Home</a>
+		{% if current_user.is_authenticated %}
+			<a href="../profile" class="left2">Profile</a>
+			<a href="../logout" class="left3">Logout</a>
+		{% endif %}
+		{% if not current_user.is_authenticated %}
+			<a href="../signup" class="left2">Sign Up</a>
+			<a href="../login" class="left3">Login</a>
+		{% endif %}
+		<header>
+			<h1><a style="text-decoration: none; color: black; font-weight: bold;" href="" onclick="location.reload();">Calculator</a></h1 >
+		</header>
+	</div>
+	<div class="container">
+		<div class="calculator">
+			<input type="text" name="screen" id="answer" readonly>
+			<table>
+				<tr>
+					<td><button>arcsin</button></td>
+					<td><button>arccos</button></td>
+					<td><button>arctan</button></td>
+					<td><button>floor</button></td>
+					<td><button>ceiling</button></td>
+				</tr>
+				<tr>
+					<td><button>sin</button></td>
+					<td><button>cos</button></td>
+					<td><button>tan</button></td>
+					<td><button>abs</button></td>
+					<td><button>round</button></td>
+				</tr>
+				<tr>
+					<td><button>π</button></td>
+					<td><button>e</button></td>
+					<td><button>ln</button></td>
+					<td><button>log10</button></td>
+					<td><button>log2</button></td>
+				</tr>
+				<tr>
+					<td><button>√x</button></td>
+					<td><button>(</button></td>
+					<td><button>)</button></td>
+					<td><button>!</button></td>
+					<td><button>÷</button></td>
+				</tr>
+				<tr>
+					<td><button>x<sup>2</sup></button></td>
+					<td><button>7</button></td>
+					<td><button>8</button></td>
+					<td><button>9</button></td>
+					<td><button>x</button></td>
+				</tr>
+				<tr>
+					<td><button>x<sup>3</sup></button></td>
+					<td><button>4</button></td>
+					<td><button>5</button></td>
+					<td><button>6</button></td>
+					<td><button>-</button></td>
+				</tr>
+				<tr>
+					<td><button>x<sup>y</sup></button></td>
+					<td><button>1</button></td>
+					<td><button>2</button></td>
+					<td><button>3</button></td>
+					<td><button>+</button></td>
+				</tr>
+				<tr>
+					<td><button>%</button></td>
+					<td><button>0</button></td>
+					<td><button style="font-weight: bold;">.</button></td>
+					<td><button style="background-color: #ff0000; font-weight: bold; color: #ecf0f1;">C</button></td>
+					<td><button style="background-color: #25db72; font-weight: bold; color: #ecf0f1;">=</button></td>
+				</tr>
+			</table>
+			<hr style="max-width: 50vw;">
+		</div>
+	</div>
+<!--    <div id="turn">-->
+<!--    PLEASE TURN YOUR DEVICE-->
+<!--	</div>-->
+</body>
+<script src="{{ url_for('static', filename='calculator/calculator.js') }}"></script>
+</html>
+
